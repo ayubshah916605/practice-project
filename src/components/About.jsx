@@ -1,52 +1,56 @@
 import React, { useState } from "react";
 
-export default function About() {
-    const [myStyle, setmyStyle] =useState({
+export default function About(props) {
+    // const [myStyle, setmyStyle] =useState({
          
-        color: "black",
-        backgroundColor: "white",
+    //     color: "black",
+    //     backgroundColor: "white",
        
-    });
-   const [btntext, setBtnText] = useState("Enable dark Mode")
-     
-    const togglesStyle = () => {
-        // console.log("toggleStle function called");
-        // console.log("Current myStyle", myStyle)
-
-if (myStyle.color === "black") {
-    //  console.log("Setting to Light mode")
-    setmyStyle({color: "white",
-    backgroundColor: "black",
-});
-setBtnText("Enable Light Mode")
-         
-}
-
-else {
-    // console.log("Setting to dark mode")
-    setmyStyle({color: "black",
-    backgroundColor: "white",
-});
-setBtnText("Enable Dark Mode")
-}
+    // })
+    let myStyle = {
+      color: props.mode === "dark" ? "white" : "#042743",
+      backgroundColor: props.mode === "dark" ? "rgb(36 74 104 )" : "white",
     }
+  //  const [btntext, setBtnText] = useState("Enable dark Mode")
+     
+//     const togglesStyle = () => {
+//         // console.log("toggleStle function called");
+//         // console.log("Current myStyle", myStyle)
+
+// if (myStyle.color === "black") {
+//     //  console.log("Setting to Light mode")
+//     setmyStyle({color: "white",
+//     backgroundColor: "black",
+// });
+// setBtnText("Enable Light Mode")
+         
+// }
+
+// else {
+//     // console.log("Setting to dark mode")
+//     setmyStyle({color: "black",
+//     backgroundColor: "white",
+// });
+// setBtnText("Enable Dark Mode")
+// }
+//     }
     // console.log("Current btnText",btntext);
   return (
     
-    <div className="container py-3 mt-3 mb-3 rounded" style={myStyle}>
-        <h1 className="headig py-3  ">About Our Application</h1>
+    <div className="container py-3 mt-3 mb-3 rounded " >
+        <h1 className="headig py-3" style={{color: props.mode === "dark" ? "white" : "#042743"}}>About Our Application</h1>
     <div className="accordion" id="accordionExample">
       <div className="accordion-item" style={myStyle}>
         <h2 className="accordion-header" id="headingOne">
           <button
-            className="accordion-button"
+            className="accordion-button shadow-none"
             type="button"
             data-bs-toggle="collapse"  style={myStyle}
             data-bs-target="#collapseOne"
             aria-expanded="true"
             aria-controls="collapseOne"
           >
-           Text Transformation: 
+           <strong>Text Transformation </strong> 
           </button>
         </h2>
         <div
@@ -63,14 +67,14 @@ setBtnText("Enable Dark Mode")
       <div className="accordion-item"style={myStyle}>
         <h2 className="accordion-header" id="headingTwo">
           <button
-            className="accordion-button collapsed" style={myStyle}
+            className="accordion-button collapsed shadow-none" style={myStyle}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapseTwo"
             aria-expanded="false"
             aria-controls="collapseTwo"
           >
-            Word and Character Count: 
+            <strong>Word and Character Count </strong> 
           </button>
         </h2>
         <div
@@ -87,14 +91,14 @@ setBtnText("Enable Dark Mode")
       <div className="accordion-item"style={myStyle}>
         <h2 className="accordion-header" id="headingThree">
           <button
-            className="accordion-button collapsed"style={myStyle}
+            className="accordion-button collapsed shadow-none"style={myStyle}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapseThree"
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Clear Text: 
+            <strong>Clear Text</strong> 
           </button>
         </h2>
         <div
@@ -109,9 +113,9 @@ setBtnText("Enable Dark Mode")
         </div>
       </div>
     </div>
-    <div className="container">
+    {/* <div className="container">
     <button className="btn-success mt-2 py-1 rounded-2" onClick={togglesStyle}>{btntext}</button>
-    </div>
+    </div> */}
     
     </div>
     
